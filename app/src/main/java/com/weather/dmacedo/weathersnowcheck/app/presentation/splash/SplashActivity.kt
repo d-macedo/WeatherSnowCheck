@@ -1,10 +1,12 @@
 package com.weather.dmacedo.weathersnowcheck.app.presentation.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.weather.dmacedo.weathersnowcheck.R
 import com.weather.dmacedo.weathersnowcheck.app.injection.component.activity.DaggerSplashActivityComponent
 import com.weather.dmacedo.weathersnowcheck.app.internal.WeatherApplication
+import com.weather.dmacedo.weathersnowcheck.app.presentation.main.MainActivity
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity(), SplashContract.View {
@@ -14,8 +16,16 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash)
         doInjections()
+
+        //todo: GO TO ONBOARDING IF IT'S THE 1ST TIME
+
+        startMainActivity()
+    }
+
+    private fun startMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     private fun doInjections() {
