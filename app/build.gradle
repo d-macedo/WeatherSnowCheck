@@ -14,7 +14,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BASE_URL", "\"api.openweathermap.org/data/2.5\""
+        buildConfigField "String", "BASE_URL", "\"https://api.openweathermap.org/data/2.5/\""
     }
     buildTypes {
         release {

@@ -2,20 +2,19 @@ package com.weather.dmacedo.weathersnowcheck.app.datasource.response.current
 
 data class CurrentWeatherResponse(
         val coord: CoordinateResponse,
-        val weather: WeatherResponse,
-        val base: String,
+        val sys: SysResponse,
+        val weather: Array<WeatherResponse>,
         val main: MainResponse,
+        val base: String,
         val wind: WindResponse,
         val clouds: CloudsResponse,
         val dt: String,
-        val sys: SysResponse,
         val id: Long,
         val name: String,
         val cod: Long
 )
 
 data class SysResponse(
-        val message: Double,
         val country: String,
         val sunrise: Long,
         val sunset: Long
@@ -23,7 +22,7 @@ data class SysResponse(
 
 data class CloudsResponse(val all: Long)
 
-data class WindResponse(val speed: Double, val deg: Long)
+data class WindResponse(val speed: Double, val deg: Double)
 
 data class MainResponse (
         val temp: Double,
@@ -40,7 +39,6 @@ data class WeatherResponse(
         val main : String,
         val description : String,
         val icon : String
-
 )
 
 data class CoordinateResponse (
