@@ -4,7 +4,4 @@ import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(private val view: SplashContract.View) {
 
-    fun test() {
-        println("view: $view")
-    }
 }

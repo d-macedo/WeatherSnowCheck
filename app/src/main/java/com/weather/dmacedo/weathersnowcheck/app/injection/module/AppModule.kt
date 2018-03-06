@@ -1,5 +1,6 @@
 package com.weather.dmacedo.weathersnowcheck.app.injection.module
 
+import android.content.Context
 import com.weather.dmacedo.weathersnowcheck.app.internal.WeatherApplication
 import dagger.Module
 import dagger.Provides
@@ -10,5 +11,5 @@ class AppModule(private val app: WeatherApplication) {
 
     @Provides
     @Singleton
-    fun provideApplication() = app
+    fun provideApplicationContext(): Context = app
 }

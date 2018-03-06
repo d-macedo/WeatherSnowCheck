@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.weather.dmacedo.weathersnowcheck.R
 import com.weather.dmacedo.weathersnowcheck.app.injection.component.activity.DaggerSplashActivityComponent
+import com.weather.dmacedo.weathersnowcheck.app.internal.WeatherApplication
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity(), SplashContract.View {
@@ -15,11 +16,11 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         doInjections()
-        presenter.test()
     }
 
     private fun doInjections() {
         DaggerSplashActivityComponent.builder()
+                .appComponent((application as WeatherApplication).appComponent)
                 .view(this)
                 .build()
                 .inject(this)
