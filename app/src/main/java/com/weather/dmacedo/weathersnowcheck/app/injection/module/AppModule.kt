@@ -6,7 +6,8 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+@Module(includes = arrayOf(
+        WebServiceModule::class))
 class AppModule(private val app: WeatherApplication) {
 
     @Provides

@@ -18,6 +18,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         doInjections()
+        presenter.getCurrentWeather()
 
         //todo: GO TO ONBOARDING IF IT'S THE 1ST TIME
 
@@ -35,4 +36,6 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
                 .build()
                 .inject(this)
     }
+
+
 }
