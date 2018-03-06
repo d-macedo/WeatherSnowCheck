@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface WeatherApi {
 
-    @GET ("/weather")
+    @GET ("weather")
     fun currentWeather(@Query("lat") lat: String,
                        @Query("lon") lon: String,
                        @Query("APPID") appId: String): Observable<CurrentWeatherResponse>

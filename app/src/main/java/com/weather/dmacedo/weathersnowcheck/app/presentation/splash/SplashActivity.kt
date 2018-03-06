@@ -16,6 +16,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         doInjections()
+        presenter.getCurrentWeather()
     }
 
     private fun doInjections() {
@@ -25,4 +26,6 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
                 .build()
                 .inject(this)
     }
+
+
 }

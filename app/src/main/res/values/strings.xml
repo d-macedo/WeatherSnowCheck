@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherSnowCheck</string>
+    <string name="file_name_api_key">api_key.txt</string>
 </resources>
