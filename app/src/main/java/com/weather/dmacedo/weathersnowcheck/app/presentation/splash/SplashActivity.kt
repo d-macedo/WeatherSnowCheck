@@ -7,6 +7,7 @@ import com.weather.dmacedo.weathersnowcheck.R
 import com.weather.dmacedo.weathersnowcheck.app.injection.component.activity.DaggerSplashActivityComponent
 import com.weather.dmacedo.weathersnowcheck.app.internal.WeatherApplication
 import com.weather.dmacedo.weathersnowcheck.app.presentation.main.MainActivity
+import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity(), SplashContract.View {
@@ -26,7 +27,10 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
     }
 
     private fun startMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+        imageview_splash.postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }, 2000)
     }
 
     private fun doInjections() {
@@ -36,6 +40,4 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
                 .build()
                 .inject(this)
     }
-
-
 }

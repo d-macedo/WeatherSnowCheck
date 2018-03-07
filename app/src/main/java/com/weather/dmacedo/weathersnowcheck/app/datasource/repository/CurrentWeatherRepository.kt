@@ -9,14 +9,8 @@ import javax.inject.Inject
 
 class CurrentWeatherRepository @Inject constructor(private val webService: WeatherApi, private val context: Context) {
 
-
     fun getCurrentWeather(lat: String, lon: String): Observable<CurrentWeatherResponse> {
-        val apiKey = context.assets
-                .open(context.getString(R.string.file_name_api_key))
-                .bufferedReader()
-                .use { it.readText() }
+        val apiKey: String = context.assets.open(context.getString(R.string.file_name_api_key)).bufferedReader().use { it.readText() }
         return webService.currentWeather(lat, lon, apiKey)
     }
-
-
 }
