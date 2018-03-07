@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash)
         doInjections()
     }
 
@@ -25,6 +25,4 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
                 .build()
                 .inject(this)
     }
-
-
 }
