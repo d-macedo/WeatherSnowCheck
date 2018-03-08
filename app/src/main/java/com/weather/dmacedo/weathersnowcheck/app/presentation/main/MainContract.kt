@@ -1,6 +1,6 @@
 package com.weather.dmacedo.weathersnowcheck.app.presentation.main
 
-import android.location.Location
+import com.weather.dmacedo.weathersnowcheck.app.datasource.response.current.CurrentWeatherResponse
 
 interface MainContract {
 
@@ -8,6 +8,7 @@ interface MainContract {
         fun requestPermissions(permissionsNeeded: ArrayList<String>)
         fun showNoConnectionMessage()
         fun showCantAskPermissionMessage()
-        fun showLocation(location: Location?)
+        fun showWeather(weather: CurrentWeatherResponse?)
+        fun showError(message: String?)
     }
 }

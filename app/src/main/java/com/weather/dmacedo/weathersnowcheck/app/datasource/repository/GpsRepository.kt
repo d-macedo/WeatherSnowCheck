@@ -9,7 +9,6 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import com.weather.dmacedo.weathersnowcheck.app.internal.CustomException
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
@@ -61,7 +60,6 @@ class GpsRepository @Inject constructor(private val appContext: Context) {
                     locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER,
                             object : LocationReveicedListener() {
                                 override fun onLocationReceived(location: Location) {
-                                    Log.wtf("TESTE", location.toString())
                                     emitter.onNext(location)
                                     emitter.onComplete()
                                 }
@@ -71,7 +69,6 @@ class GpsRepository @Inject constructor(private val appContext: Context) {
                     locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER,
                             object : LocationReveicedListener() {
                                 override fun onLocationReceived(location: Location) {
-                                    Log.wtf("TESTE", location.toString())
                                     emitter.onNext(location)
                                     emitter.onComplete()
                                 }
@@ -79,7 +76,6 @@ class GpsRepository @Inject constructor(private val appContext: Context) {
                             null)
                 }
             } catch (exception: SecurityException) {
-                Log.wtf("TESTE", exception.toString())
                 emitter.onError(exception)
             }
         })
@@ -91,20 +87,16 @@ class GpsRepository @Inject constructor(private val appContext: Context) {
         abstract fun onLocationReceived(location: Location)
 
         override fun onLocationChanged(location: Location) {
-            Log.d("TESTE_OK", location.toString())
             onLocationReceived(location)
         }
 
         override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
-            Log.wtf("TESTE", "onStatusChanged")
         }
 
         override fun onProviderEnabled(p0: String?) {
-            Log.wtf("TESTE", "onProviderEnabled")
         }
 
         override fun onProviderDisabled(p0: String?) {
-            Log.wtf("TESTE", "onProviderDisabled")
         }
     }
 }
