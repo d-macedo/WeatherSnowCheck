@@ -10,6 +10,7 @@ interface WeatherApi {
     @GET ("weather")
     fun currentWeather(@Query("lat") lat: String,
                        @Query("lon") lon: String,
+                       @Query("units") units: String,
                        @Query("APPID") appId: String): Observable<CurrentWeatherResponse>
 
 }
