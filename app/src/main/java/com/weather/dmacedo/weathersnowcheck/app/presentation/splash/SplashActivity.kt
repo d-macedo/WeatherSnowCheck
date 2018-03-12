@@ -7,6 +7,8 @@ import com.weather.dmacedo.weathersnowcheck.R
 import com.weather.dmacedo.weathersnowcheck.app.injection.component.activity.DaggerSplashActivityComponent
 import com.weather.dmacedo.weathersnowcheck.app.internal.WeatherApplication
 import com.weather.dmacedo.weathersnowcheck.app.presentation.main.MainActivity
+import com.weather.dmacedo.weathersnowcheck.app.presentation.onboard.OnBoardActivity
+import com.weather.dmacedo.weathersnowcheck.app.presentation.onboard.OnBoardAdapter
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
@@ -28,7 +30,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
 
     private fun startMainActivity() {
         imageview_splash.postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, OnBoardActivity::class.java))
             finish()
         }, 2000)
     }

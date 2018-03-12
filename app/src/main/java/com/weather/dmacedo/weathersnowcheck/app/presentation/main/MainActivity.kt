@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private fun showPopupMenu() {
         val popupMenu = PopupMenu(this, main_weather_button)
         popupMenu.menuInflater.inflate(R.menu.weather_conditions, popupMenu.menu)
-
         val popupHelper = MenuPopupHelper(this, popupMenu.menu as MenuBuilder, main_weather_button)
         popupHelper.setForceShowIcon(true)
         popupHelper.show()
